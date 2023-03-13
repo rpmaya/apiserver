@@ -16,7 +16,7 @@ const authMiddleware = async (req, res, next) => {
         //Del token, miramos en Payload (revisar verifyToken de utils/handleJwt)
         const dataToken = await verifyToken(token)
 
-       if(!dataToken){
+        if(!dataToken){
             handleHttpError(res, "NOT_PAYLOAD_DATA", 401)
             retrun
        }

@@ -39,7 +39,8 @@ const registerCtrl = async (req, res) => {
 const loginCtrl = async (req, res) => {
     try {
         req = matchedData(req)
-        const user = await usersModel.findOne({ email: req.email }) //.select("password name role email")
+        var user
+        (process.env.ENGINE_DB === "nosql") ? user = await usersModel.findOne({ email: req.email }).select("password name role email") : user = await usersModel.findOne({ email: req.email })
 
         if(!user){
             handleHttpError(res, "USER_NOT_EXISTS", 404)

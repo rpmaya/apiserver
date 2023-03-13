@@ -9,8 +9,9 @@ const { matchedData } = require('express-validator')
 const getItems = async (req, res) => {
     try{
         const user = req.user //Obtengo trazabilidad del usuario, puedo ver qué solicita, su rol, etc.
-        var data = "";
-        (process.env.ENGINE_DB === "nosql") ? data = await tracksModel.find() : data = await tracksModel.findAll()
+        var data
+        //(process.env.ENGINE_DB === "nosql") ? data = await tracksModel.find() : data = await tracksModel.findAll()
+        data = await tracksModel.findAllData() // findAllData(): custom static function
         res.send({data, user})
     }catch(err){
         console.log(err) //Opcional
@@ -27,10 +28,11 @@ const getItems = async (req, res) => {
 const getItem = async (req, res) => {
     try{
         const {id} = matchedData(req) //Me quedo solo con el id
-        const data = await tracksModel.findById(id)
+        //const data = await tracksModel.findById(id)
+        const data = await tracksModel.findOneData(id)
         res.send(data)
     } catch(err){
-        //console.log(err)
+        console.log(err)
         handleHttpError(res, "ERROR_GET_ITEM")
     }
 }
