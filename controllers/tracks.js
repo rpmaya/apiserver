@@ -9,7 +9,8 @@ const { matchedData } = require('express-validator')
 const getItems = async (req, res) => {
     try{
         const user = req.user //Obtengo trazabilidad del usuario, puedo ver qué solicita, su rol, etc.
-        const data = await tracksModel.find({}) //.findAll()
+        var data = "";
+        (process.env.ENGINE_DB === "nosql") ? data = await tracksModel.find() : data = await tracksModel.findAll()
         res.send({data, user})
     }catch(err){
         console.log(err) //Opcional

@@ -1,5 +1,5 @@
 GET http://localhost:3000/api/tracks
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBlMjMwNGE2NDZiM2EwYTg3Y2M2MjAiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3ODcyMjQ2NSwiZXhwIjoxNjc4NzI5NjY1fQ.xSEyF2cXviiJShOmVHx9Y99Qj1LeKODmeWVHg_BcGuc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJpYXQiOjE2Nzg3MjM1NTgsImV4cCI6MTY3ODczMDc1OH0.QGSkFRUXYa3rnZRjlgIxqiXPA5ieBdEPjpyfpiK2Tz4
 
 
 ###
@@ -91,7 +91,7 @@ POST http://localhost:3000/api/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "user1@test.com",
+    "email": "user2@test.com",
     "password": "HolaMundo.01"
 }
 
@@ -99,7 +99,7 @@ Content-Type: application/json
 
 PUT http://localhost:3000/api/auth/update/64061d3d990985b7a927bc49
 Content-Type: application/json
-Authorization: Bearer Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA2MWQ1ODU0YWJlNWU2ODM2ZTU5ZGEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzgxMjkyMjQsImV4cCI6MTY3ODEzNjQyNH0.aq8mBYiwj20lPXqkxaIKP_hazvGd1HnRzo_hiVRi9Tc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA2MWQ1ODU0YWJlNWU2ODM2ZTU5ZGEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzgxMjkyMjQsImV4cCI6MTY3ODEzNjQyNH0.aq8mBYiwj20lPXqkxaIKP_hazvGd1HnRzo_hiVRi9Tc
 
 {
     "name": "Menganito",
@@ -107,4 +107,22 @@ Authorization: Bearer Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
     "email": "test11@test.com",
     "password": "$2a$10$qrlU0eIbMpBolZZUIfCH7./pxAdMecSyn3rAXILWKol/7waO8vlkq",
     "role": "admin"
+}
+
+###
+
+POST http://localhost:3000/api/tracks HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJpYXQiOjE2Nzg3MjM1NTgsImV4cCI6MTY3ODczMDc1OH0.QGSkFRUXYa3rnZRjlgIxqiXPA5ieBdEPjpyfpiK2Tz4
+
+{
+    "name": "Ric",
+    "album": "Album",
+    "cover": "http://tttt.com",
+    "artist_name": "Ric",
+    "artist_nickname": "rsurname",
+    "artist_nationality": "ES",
+    "duration_start":1,
+    "duration_end":2,
+    "mediaId": "0123456789abcdef01234567"
 }
