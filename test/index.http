@@ -1,0 +1,110 @@
+GET http://localhost:3000/api/tracks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBlMjMwNGE2NDZiM2EwYTg3Y2M2MjAiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3ODcyMjQ2NSwiZXhwIjoxNjc4NzI5NjY1fQ.xSEyF2cXviiJShOmVHx9Y99Qj1LeKODmeWVHg_BcGuc
+
+
+###
+
+GET http://localhost:3000/api/tracks/63fba226c391fd40d29c4dd7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBlMjM0MWE2NDZiM2EwYTg3Y2M2MjYiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3ODY0ODEzMCwiZXhwIjoxNjc4NjU1MzMwfQ.gZ8eic-wO0YZBBLuZcMgXJyINoIbU94tne6gY5WDbRw
+
+###
+
+POST http://localhost:3000/api/tracks HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJpYXQiOjE2Nzg2NDYyMjAsImV4cCI6MTY3ODY1MzQyMH0.PUU0tmly-s6nLshhLnUTpNRw4z_nXhqAhbxlwmZYc90
+
+{
+    "name": "Ric",
+    "album": "Album",
+    "cover": "http://tttt.com",
+    "artist": {
+        "name": "Ric",
+        "nickname": "rsurname",
+        "nationality": "ES"
+    },
+    "duration": {
+        "start":1,
+        "end":2
+    },
+    "mediaId": "0123456789abcdef01234567"
+  
+}
+
+
+###
+
+PUT http://localhost:3000/api/tracks/63fba226c391fd40d29c4dd7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Ric4",
+    "album": "Album2",
+    "cover": "http://t2.com",
+    "artist": {
+        "name": "Ric4",
+        "nickname": "surname2",
+        "nationality": "ES"
+    },
+    "duration": {
+        "start":1,
+        "end":2
+    },
+    "mediaId": "0123456789abcdef01234567"
+  
+}
+
+###
+
+DELETE http://localhost:3000/api/tracks/63fba226c391fd40d29c4dd7
+
+###
+
+GET http://localhost:3000/api/storage
+
+###
+
+POST http://localhost:3000/api/storage HTTP/1.1
+Content-Type: multipart/form-data; boundary=Boundry
+
+--Boundry
+Content-Disposition: form-data; name="image"; filename="img.jpg"
+Content-Type: image/jpg
+
+< ./img.jpg
+--Boundry--
+
+###
+
+POST http://localhost:3000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Menganito",
+    "age": 20,
+    "email": "user1@test.com",
+    "password": "HolaMundo.01"
+}
+
+###
+
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "user1@test.com",
+    "password": "HolaMundo.01"
+}
+
+###
+
+PUT http://localhost:3000/api/auth/update/64061d3d990985b7a927bc49
+Content-Type: application/json
+Authorization: Bearer Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA2MWQ1ODU0YWJlNWU2ODM2ZTU5ZGEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzgxMjkyMjQsImV4cCI6MTY3ODEzNjQyNH0.aq8mBYiwj20lPXqkxaIKP_hazvGd1HnRzo_hiVRi9Tc
+
+{
+    "name": "Menganito",
+    "age": 20,
+    "email": "test11@test.com",
+    "password": "$2a$10$qrlU0eIbMpBolZZUIfCH7./pxAdMecSyn3rAXILWKol/7waO8vlkq",
+    "role": "admin"
+}
