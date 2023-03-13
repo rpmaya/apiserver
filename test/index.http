@@ -1,10 +1,10 @@
 GET http://localhost:3000/api/tracks
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBlMjM0MWE2NDZiM2EwYTg3Y2M2MjYiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3ODczNDQ3MiwiZXhwIjoxNjc4NzQxNjcyfQ.Tu_Oz-TxjklEmVdI-_q4tNCeuvxHJ-uE7QC21Jv0Dy4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJpYXQiOjE2Nzg3Mzc4MDksImV4cCI6MTY3ODc0NTAwOX0.00xs8WVV7JkwxKJF0hoa3kRkGXW8b1dpztlTwwKH3HY
 
 
 ###
 
-GET http://localhost:3000/api/tracks/63fba226c391fd40d29c4dd7
+GET http://localhost:3000/api/tracks/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBlMjM0MWE2NDZiM2EwYTg3Y2M2MjYiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3ODczNDQ3MiwiZXhwIjoxNjc4NzQxNjcyfQ.Tu_Oz-TxjklEmVdI-_q4tNCeuvxHJ-uE7QC21Jv0Dy4
 
 ###
