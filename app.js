@@ -1,7 +1,9 @@
 const express = require("express")
 const cors = require("cors")
 const morganBody = require("morgan-body")
+const swaggerUi = require("swagger-ui-express")
 require("dotenv").config();
+const swaggerSpecs = require("./docs/swagger")
 const loggerStream = require("./utils/handleLogger")
 const dbConnectNoSql = require("./config/mongo")
 const { sequelize, dbConnectMySql } = require("./config/mysql")
@@ -24,6 +26,7 @@ morganBody(app, { //Para ver las distintas configuraciones que podemos pasarle e
     stream: loggerStream
 })
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs))
 
 /* Aquí invocamos a las rutas */
 //app.use("/api", require("./routes/tracks"))

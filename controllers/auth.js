@@ -84,5 +84,15 @@ const updateUser = async (req, res) => {
     }
 }
 
+const getUsers = async (req, res) => {
+    try {
+        const data = await usersModel.findAll() //.find()
+        res.send({ data })
+    } catch (err) {
+        console.log(err) //Opcional
+        //handleHttpError(res, 'ERROR_GET_ITEMS', 404)
+        handleHttpError(res, 'ERROR_GET_USERS') //Si nos sirve el de por defecto que hemos establecido, no es necesario pasar el 403
+    }
+}
 
-module.exports = { registerCtrl, loginCtrl, updateUser }
+module.exports = { registerCtrl, loginCtrl, updateUser, getUsers }
