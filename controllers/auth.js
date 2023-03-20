@@ -84,10 +84,31 @@ const updateUser = async (req, res) => {
     }
 }
 
+const deleteUser = async (req, res) => {
+    try {
+        const {id} = matchedData(req)
+        var data = ""
+        if (process.env.ENGINE_DB === 'nosql') {
+            data = await usersModel.deleteOne({_id:id})
+        }else {
+            data = await usersModel.destroy({ where: { id: id } })
+        }
+        res.send(data)
+    } catch(err){
+        console.log(err)
+        handleHttpError(res, 'ERROR_DELETE_USER')
+    }
+}
+
 const getUsers = async (req, res) => {
     try {
-        const data = await usersModel.findAll() //.find()
-        res.send({ data })
+        var data = ""
+        if (process.env.ENGINE_DB === 'nosql') {
+          data = await usersModel.find({}) 
+        }else {
+          data = await usersModell.findAll()
+        }
+        res.send(data)
     } catch (err) {
         console.log(err) //Opcional
         //handleHttpError(res, 'ERROR_GET_ITEMS', 404)
@@ -95,4 +116,4 @@ const getUsers = async (req, res) => {
     }
 }
 
-module.exports = { registerCtrl, loginCtrl, updateUser, getUsers }
+module.exports = { registerCtrl, loginCtrl, updateUser, getUsers, deleteUser }

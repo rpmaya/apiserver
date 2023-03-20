@@ -48,6 +48,5 @@ if (process.env.ENGINE_DB === 'nosql') {
     sequelize.sync() // Crea las tablas en la base de datos si no existieran
 }
 
-
-
+module.exports = app
 

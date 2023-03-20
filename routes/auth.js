@@ -1,5 +1,5 @@
 const express = require("express")
-const { registerCtrl, loginCtrl, updateUser, getUsers } = require("../controllers/auth")
+const { registerCtrl, loginCtrl, updateUser, getUsers, deleteUser } = require("../controllers/auth")
 const {validatorRegister, validatorLogin, validatorGetUser, validatorUpdate} = require("../validators/auth")
 const authMiddleware = require("../middleware/session")
 const checkRol = require("../middleware/rol")
@@ -22,6 +22,7 @@ const router = express.Router()
  *          - bearerAuth: []
  */
 router.get("/users", authMiddleware, getUsers)
+//router.get("/users", getUsers)
 
 /**
  * @openapi
@@ -94,5 +95,31 @@ router.post("/login", validatorLogin, loginCtrl)
  *          - bearerAuth: []
  */
 router.put("/update/:id", authMiddleware, checkRol(["admin"]), validatorGetUser, validatorUpdate, updateUser)
+
+/**
+ * @openapi
+ * /api/auth/users/{id}:
+ *  put:
+ *      tags:
+ *      - User
+ *      summary: Delete user
+ *      description: Delete a user by an admin
+ *      parameters:
+ *          -   name: id
+ *              in: path
+ *              description: id that need to be deleted
+ *              required: true
+ *              schema:
+ *                  type: string
+ *      responses:
+ *          '200':
+ *              description: Returns the status
+ *          '401':
+ *              description: Validation error
+ *      security:
+ *          - bearerAuth: []
+ */
+router.delete("/users/:id", authMiddleware, validatorGetUser, deleteUser)
+//router.delete("/users/:id", validatorGetUser, deleteUser)
 
 module.exports = router

@@ -12,7 +12,6 @@ const checkRol = require("../middleware/rol")
 /**
  * Lista los items
  */
-//router.get("/tracks", (req, res) => {
 router.get("/", authMiddleware, getItems)
 
 /**

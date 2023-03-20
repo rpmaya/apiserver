@@ -1,3 +1,11 @@
+GET http://localhost:3000/api/auth/users
+
+###
+
+DELETE http://localhost:3000/api/auth/users/64008f46728cd488a91d4b96
+
+###
+
 GET http://localhost:3000/api/tracks
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJpYXQiOjE2Nzg3Mzc4MDksImV4cCI6MTY3ODc0NTAwOX0.00xs8WVV7JkwxKJF0hoa3kRkGXW8b1dpztlTwwKH3HY
 
@@ -81,7 +89,7 @@ Content-Type: application/json
 {
     "name": "Menganito",
     "age": 20,
-    "email": "user1@test.com",
+    "email": "user11@test.com",
     "password": "HolaMundo.01"
 }
 
