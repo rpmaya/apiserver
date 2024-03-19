@@ -107,7 +107,7 @@ const getUsers = async (req, res) => {
         if (process.env.ENGINE_DB === 'nosql') {
           data = await usersModel.find({}) 
         }else {
-          data = await usersModell.findAll()
+          data = await usersModel.findAll()
         }
         res.send(data)
     } catch (err) {
