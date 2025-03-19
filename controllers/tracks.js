@@ -11,7 +11,7 @@ const getItems = async (req, res) => {
         const user = req.user //Obtengo trazabilidad del usuario, puedo ver qué solicita, su rol, etc.
         var data
         //(process.env.ENGINE_DB === "nosql") ? data = await tracksModel.find() : data = await tracksModel.findAll()
-        data = await tracksModel.findAllData() // findAllData(): custom static function
+        data = await tracksModel.find().populate('mediaId') // findAllData(): custom static function
         res.send({data, user})
     }catch(err){
         console.log(err) //Opcional

@@ -38,7 +38,8 @@ const TracksScheme = new mongoose.Schema(
             }
         },
         mediaId: {
-            type: mongoose.Types.ObjectId // Estructura (string) especial de mongo
+            type: mongoose.Types.ObjectId,
+            ref: 'storage' // Estructura (string) especial de mongo
         }
     },
     {
